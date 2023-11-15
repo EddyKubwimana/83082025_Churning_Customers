@@ -1,4 +1,4 @@
-## ==================================================================================================
+
 ## Overview
 
 This repository contains the code and resources for the "Churning Customers" project.
@@ -52,6 +52,7 @@ The data used for training and testing of the model was borrowed from kaggle on 
 the data was cleaned and encoded using pandas factorize method. After being factorized, it was scaled using standard scaler from sklearn.
 
 ```bash
+![visualization](https://example.com/path/to/logo.png)
 
 from sklearn.preprocessing import StandardScaler
 
@@ -73,16 +74,18 @@ the feauture that have high importance
   y = finaldata["Churn"]
   xtrain,xtest,ytrain,ytest = train_test_split(xdata,y, test_size = 0.1, random_state =42, stratify= y)
   input_layer = Input(shape=(xtrain.shape[1],))
-hidden_layer1 = Dense(12, activation="tanh")(input_layer)
-dropout_layer = Dropout(0.5)(hidden_layer1)  
-output_layer = Dense(1, activation='sigmoid')(dropout_layer)
+  hidden_layer1 = Dense(12, activation="tanh")(input_layer)
+  dropout_layer = Dropout(0.5)(hidden_layer1)  
+  output_layer = Dense(1, activation='sigmoid')(dropout_layer)
 
-model = keras.Model(inputs=input_layer, outputs=output_layer)
+  model = keras.Model(inputs=input_layer, outputs=output_layer)
 
-model.compile(optimizer=Adamax(learning_rate=0.01), loss='binary_crossentropy', metrics=['accuracy'])
+  model.compile(optimizer=Adamax(learning_rate=0.01), loss='binary_crossentropy', metrics=['accuracy'])
 
 
-history = model.fit(xtrain, ytrain, epochs=100, batch_size=21, validation_split=0.2, validation_data=(xtest, ytest))
+  history = model.fit(xtrain, ytrain, epochs=100, batch_size=21, validation_split=0.2, validation_data=(xtest, ytest))
+
+  ```
 
 # Evaluate and print results
 loss, accuracy = model.evaluate(xtest, ytest)
