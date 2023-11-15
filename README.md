@@ -27,25 +27,50 @@ Provide a brief description of your project. What problem does it solve? What is
 
 ## Installation
 
-Describe the installation process, if any, for your project. Include any dependencies that need to be installed and how to install them.
+Dependency used for the implementation of the project:
 
 ```bash
 # Example installation steps
 pip install -r requirements.txt
+pip install pandas
+pip install tensorflow
+pip sklearn
+pip install matplotlib
+from sklearn
+pip install shap
+pip install joblib
+
 ```
 
 ## Usage
 
-Explain how to use your project, including any configuration settings or parameters that need to be set.
+- The model we trained is meant to predict if a customer churn or not. It can be used to know based on different factors if the the customer churn or not
+- The model takes the following array = ["tenure","TotalCharges","InternetService","Contract","OnlineSecurity","TechSupport","PaymentMethod","MonthlyCharges"]
+- The one the model is loaded, it predicts either 1 or 0, 0 being NO, AND 1 Being Yes
 
 ```bash
-# Example usage command
-python main.py --input data/input.csv --output results/output.csv
+
+from keras.models import load_model
+loaded_model = load_model("/content/drive/MyDrive/IntroAi/finalmodel")
+loaded_model.summary() 
+
 ```
 
 ## Data
+The data used for training and testing of the model was borrowed from kaggle on this link : https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+the data was cleaned and encoded using pandas factorize method. After being factorized, it was scaled using standard scaler from sklearn.
 
-Provide information about the dataset used in the project. Include details about where to obtain the data and any preprocessing steps that were applied.
+```bash
+
+from sklearn.preprocessing import StandardScaler
+
+scaled = StandardScaler()
+
+scaledata = scaled.fit_transform(x)
+
+xdata = pd.DataFrame(scaledata, columns = x.columns)
+
+```
 
 ## Model Training
 
