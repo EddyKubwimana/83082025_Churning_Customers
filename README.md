@@ -1,11 +1,12 @@
 
 ## Overview
 
-This repository contains the code and resources for the "Churning Customers" project.
+This repository contains the code and resources for the "Churning Customers" project. 
+here is the link to the project deployement https://agent-connectapp.herokuapp.com/churn
 
 ## Project Description
 
-Provide a brief description of your project. What problem does it solve? What is its purpose?
+The project aims to predict if customer has stopped doing business with a company based on some variables
 
 ## Table of Contents
 
@@ -22,7 +23,6 @@ Provide a brief description of your project. What problem does it solve? What is
 Dependency used for the implementation of the project:
 
 ```bash
-# Example installation steps
 pip install -r requirements.txt
 pip install pandas
 pip install tensorflow
