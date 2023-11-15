@@ -1,12 +1,4 @@
-# Churning Customers
-Certainly! Below is a basic template for a README file for the given GitHub repository. Feel free to customize it further based on the specifics of your project.
-
----
-
-# 83082025_Churning_Customers
-
-![Project Logo/Icon/Image (if applicable)](url_to_logo_or_icon)
-
+## ==================================================================================================
 ## Overview
 
 This repository contains the code and resources for the "Churning Customers" project.
@@ -36,7 +28,6 @@ pip install pandas
 pip install tensorflow
 pip sklearn
 pip install matplotlib
-from sklearn
 pip install shap
 pip install joblib
 
@@ -74,11 +65,48 @@ xdata = pd.DataFrame(scaledata, columns = x.columns)
 
 ## Model Training
 
-Explain how the machine learning model was trained. Include details about the chosen algorithm, hyperparameters, and any cross-validation strategies used.
+Due to how we have many insigificant feature, we trained the model with all independent variables and run the model through shap explainer to find out the 
+the feauture that have high importance
+- Training of the model with all feautures:
+  ```bash
+  x = finaldata.drop(["Churn"],axis =1)
+  y = finaldata["Churn"]
+  xtrain,xtest,ytrain,ytest = train_test_split(xdata,y, test_size = 0.1, random_state =42, stratify= y)
+  input_layer = Input(shape=(xtrain.shape[1],))
+hidden_layer1 = Dense(12, activation="tanh")(input_layer)
+dropout_layer = Dropout(0.5)(hidden_layer1)  
+output_layer = Dense(1, activation='sigmoid')(dropout_layer)
 
+model = keras.Model(inputs=input_layer, outputs=output_layer)
+
+model.compile(optimizer=Adamax(learning_rate=0.01), loss='binary_crossentropy', metrics=['accuracy'])
+
+
+history = model.fit(xtrain, ytrain, epochs=100, batch_size=21, validation_split=0.2, validation_data=(xtest, ytest))
+
+# Evaluate and print results
+loss, accuracy = model.evaluate(xtest, ytest)
+print(f'Test loss: {loss}, Test accuracy: {accuracy}')
+
+# Plot the training history
+import matplotlib.pyplot as plt
+
+plt.plot(history.history['accuracy'], label='accuracy')
+plt.plot(history.history['val_accuracy'], label='val_accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend(loc='lower right')
+plt.show()
+
+  ```
+
+![Project Logo](https://example.com/path/to/logo.png)
+
+
+The model was trained using artifical neural network with GreadSearch to find the best hyperparamaters .
 ```bash
-# Example training command
-python train_model.py --input data/train_data.csv --model_output models/model.pkl
+
+
 ```
 
 ## Results
