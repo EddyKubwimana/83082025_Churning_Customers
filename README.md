@@ -2,7 +2,10 @@
 ## Overview
 
 This repository contains the code and resources for the "Churning Customers" project. 
-here is the link to the project deployement https://agent-connectapp.herokuapp.com/churn
+here is the link to the project deployement 
+- deployment link : https://agent-connectapp.herokuapp.com/churn
+-  demonstration link video : https://youtu.be/w3ZbO-p9OGE
+
 
 ## Project Description
 
