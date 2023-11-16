@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Churn Prediction</title>
+    <style>
+        body {
+            margin:20px 400px 20px 400px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            align-content: center; 
+            background-color: #080806;  
+
+        }
+        form {
+            background-color: #5f545c;
+            padding: 25px;
+            border-radius: 50px;
+            align-items:center;
+            margin: 20px, 20px;
+            min-width:500px;
+            
+        }
+
+        .names {
+    text-align: center;
+        } 
+
+#blinking-text {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: blink 10s infinite, colorChange 10s linear infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 2; }
+}
+
+@keyframes colorChange {
+    0% { color: #ff0000; }
+    10% { color: #00ff00; }
+    20% { color: #0000ff; }
+    30% { color: #ff00ff; }
+    40% { color: #ffff00; }
+    50% { color: #10208a; }
+    60% { color: #080806; }
+    70% { color: #ff00d4; }
+    80% { color: #f1f112; }
+    90% { color: #ff4d00; }
+    100% { color: #f70a0a; }
+
+}
+
+button{
+
+    color :#0000ff;
+    font-size: large;
+    max-width: 300px;
+    
+}
+
+/* static/css/forms.css */
+.form-field {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.form-field label {
+    flex-basis: 40%;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.form-field input[type="text"] {
+    flex-basis: 60%;
+    
+}
+
+.clickable{
+
+    font-size: 20px;
+    background-color: #0000ff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: inset 10px 10px 10px rgba(71, 19, 19, 0.05),
+                15px 15px 15px rgba(7, 8, 54, 0.05),
+                15px 15px 15px rgba(15, 10, 10, 0.05),
+                inset 20px 20px 20px rgba(54, 208, 167, 0.9);
+}
+
+.clickable:hover{
+    background-color: #ff00d4;
+    
+}
+
+.clickable:active{
+    background-color: #f70a0a;
+
+}
+
+
+
+@media only screen and (max-width:800px) {
+    form {
+            background-color: #77b1d0;
+            padding: 20px;
+            border-radius: 15px;
+            align-items:center;
+            margin: 20px, 20px;
+            min-width:500px;
+            
+           
+            
+        }
+
+
+#blinking-text {
+    font-size: 24px;
+    padding-left: 200px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: blink 10s infinite, colorChange 10s linear infinite;
+}
+}
+@media only screen and (max-width:600px) {
+
+    #blinking-text {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: blink 10s infinite, colorChange 10s linear infinite;
+}
+
+
+.names {
+    text-align: justify;
+        } 
+}
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+        
+
+       
+
+            <div class="names">
+                <h1 id="blinking-text">Customer Churn</h1>
+                <h1 id="blinking-text">Eddy</h1>
+                
+            </div>
+
+         <form method="post">
+            {% csrf_token %}
+         
+
+            <div class="form-field">
+                <label for="{{ form.Tenure.id_for_label }}">TENURE:</label>
+                {{ form.Tenure }}
+              
+            </div>
+            
+            <div class="form-field">
+                <label for="{{ form.TotalCharges.id_for_label }}">TOTAL CHARGES</label>
+                {{ form.TotalCharges }}
+             
+            </div>
+        
+            <div class="form-field">
+                <label for="{{ form.InternetService.id_for_label }}">INTERNET SERVICE:</label>
+                {{ form.InternetService}}
+              
+            </div>
+        
+            <div class="form-field">
+                <label for="{{ form.Contract.id_for_label }}">CONTRACT:</label>
+                {{ form.Contract }}
+            </div>
+        
+            <div class="form-field">
+                <label for="{{ form.OnlineSecurity.id_for_label }}">ONLINE SECURITY:</label>
+                {{ form.OnlineSecurity}}
+            </div>
+
+            <div class="form-field">
+                <label for="{{ form.techSupport.id_for_label }}">TECH SUPPORT:</label>
+                {{ form.techSupport}}
+        
+            </div>
+
+            <div class="form-field">
+                <label for="{{ form.PaymentMethod.id_for_label }}">PAYMENT METHOD:</label>
+                {{ form.PaymentMethod}}
+        
+            </div>
+
+
+            <div class="form-field">
+                <label for="{{ form.MonthlyCharges.id_for_label }}">MONTHLY CHARGES:</label>
+                {{ form.MonthlyCharges}}
+        
+            </div>
+
+
+
+            <input class = "clickable" type="submit" value="Is a customer Churning ? ">
+        
+            <div class="form-field">
+                <label for="{{ form.Churn.id_for_label }}">CHURN:</label>
+                {{ form.Churn }}
+            </div>
+        
+        </form>
+        
+
+</body>
+</html>
