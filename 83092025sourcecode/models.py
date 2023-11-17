@@ -4,8 +4,6 @@ class annModel(models.Model):
     '''
 
     -Model for the second asssignment of our artificial intellegence course
-
-    "tenure","TotalCharges","InternetService","Contract","OnlineSecurity","TechSupport","MonthlyCharges"
     
     '''
     INTERNET_CHOICES = [
@@ -45,6 +43,7 @@ class annModel(models.Model):
     techSupport = models.IntegerField(verbose_name = "Tech Support", choices = ONLINESECURITY_CHOICES)
     PaymentMethod = models.IntegerField(verbose_name = "Payment Method", choices = PAYMENTMETHOD)
     MonthlyCharges = models.FloatField(verbose_name= "Monthly Charges", default=None)
+   Confidence = models.CharField(verbose_name="Confidence",default=None, max_length=10, blank=True)
     Churn = models.CharField(verbose_name="Customer Churn",default=None, max_length=4, blank=True)
 
     def __str__self():

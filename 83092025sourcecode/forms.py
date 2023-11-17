@@ -17,7 +17,7 @@ class customerChurn(forms.ModelForm):
     
     class Meta:
         model =annModel
-        fields = ["Tenure","TotalCharges","InternetService","Contract","OnlineSecurity","techSupport","PaymentMethod","MonthlyCharges","Churn"]
+        fields = ["Tenure","TotalCharges","InternetService","Contract","OnlineSecurity","techSupport","PaymentMethod","MonthlyCharges","Confidence","Churn"]
 
 
 
