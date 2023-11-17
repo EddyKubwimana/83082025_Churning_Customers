@@ -3,7 +3,7 @@
 
 This repository contains the code and resources for the "Churning Customers" project. 
 here is the link to the project deployement 
-- deployment link : https://agent-connectapp.herokuapp.com/churn
+- deployment link : https://www.agentconnect.live/churn
 -  demonstration link video : https://youtu.be/w3ZbO-p9OGE
 
 
@@ -39,20 +39,20 @@ pip install joblib
 ## Usage
 
 - The model we trained is meant to predict if a customer churn or not. It can be used to know based on different factors if the the customer churn or not
-- The model takes the following array = ["tenure","TotalCharges","InternetService","Contract","OnlineSecurity","TechSupport","PaymentMethod","MonthlyCharges"]
-- The one the model is loaded, it predicts either 1 or 0, 0 being NO, AND 1 Being Yes
+- The model takes the following columns from the dataset = tenure,TotalCharges,InternetService,Contract,OnlineSecurity,TechSupport,PaymentMethod,"MonthlyCharges
+- After the model is deployed it predicts  the proprability of a customer churn.
 
 ```bash
 
 from keras.models import load_model
 loaded_model = load_model("/content/drive/MyDrive/IntroAi/finalmodel")
-loaded_model.summary() 
+loaded_model.predict([Xtest])
 
 ```
 
 ## Data
 The data used for training and testing of the model was borrowed from kaggle on this link : https://www.kaggle.com/datasets/blastchar/telco-customer-churn
-the data was cleaned and encoded using pandas factorize method. After being factorized, it was scaled using standard scaler from sklearn.
+the data was cleaned and encoded using pandas factorize method. After being factorized, it was scaled using standard scaler.
 
 ```bash
 ![visualization](https://example.com/path/to/logo.png)
@@ -91,10 +91,15 @@ the feauture that have high importance
   ```
 
 # Evaluate and print results
+```bash
+
 loss, accuracy = model.evaluate(xtest, ytest)
 print(f'Test loss: {loss}, Test accuracy: {accuracy}')
 
+```
+
 # Plot the training history
+```bash
 import matplotlib.pyplot as plt
 
 plt.plot(history.history['accuracy'], label='accuracy')
@@ -106,8 +111,6 @@ plt.show()
 
   ```
 
-![Project Logo](https://example.com/path/to/logo.png)
-
 
 The model was trained using artifical neural network with GreadSearch to find the best hyperparamaters .
 ```bash
@@ -117,11 +120,7 @@ The model was trained using artifical neural network with GreadSearch to find th
 
 ## Results
 
-Discuss the results of your project. Include any visualizations, performance metrics, or insights gained from the analysis.
-
-## Contributing
-
-If you'd like to contribute to the project, please follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md).
+After training the model, I was able to achieve the accuracy of 79% and AUC score of 83.4%
 
 ## License
 
@@ -129,4 +128,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-Replace the placeholders such as `url_to_logo_or_icon` with actual URLs or relevant content. Add sections or modify content based on the structure and requirements of your project.
+Thanks !!!!
