@@ -18,7 +18,6 @@ The project aims to predict if customer has stopped doing business with a compan
 - [Data](#data)
 - [Model Training](#model-training)
 - [Results](#results)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
