@@ -3,7 +3,6 @@
 
 This repository contains the code and resources for the "Churning Customers" project. 
 here is the link to the project deployement 
-- deployment link : https://www.agentconnect.live/churn
 -  demonstration link video : https://youtu.be/w3ZbO-p9OGE
 
 
